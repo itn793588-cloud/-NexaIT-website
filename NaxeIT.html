@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexa IT – Cybersecurity</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-main:#0b0f14;
+  --bg-card:#111827;
+  --bg-accent:#020617;
+  --primary:#00ff9c;
+  --secondary:#38bdf8;
+  --text-main:#e5e7eb;
+  --text-muted:#9ca3af;
+}
+
+/* Reset */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Roboto}
+body{background:var(--bg-main);color:var(--text-main);line-height:1.6}
+a{text-decoration:none;color:inherit}
+
+/* Header */
+header{
+  background:var(--bg-accent);
+  border-bottom:1px solid var(--primary);
+  text-align:center;
+  padding:20px;
+  box-shadow:0 0 15px #00ff9c33;
+}
+header h1{color:var(--primary);letter-spacing:2px}
+header p{color:var(--text-muted)}
+
+/* Navbar */
+nav{
+  background:#020617;
+  padding:10px;
+  text-align:center;
+}
+nav a{margin:0 15px;color:var(--text-main)}
+nav a:hover{color:var(--primary);transition:0.3s;}
+nav button{
+  margin-left:20px;
+  background:transparent;
+  border:1px solid var(--primary);
+  color:var(--primary);
+  padding:5px 10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+nav button:hover{background:var(--primary);color:#000}
+
+/* Hero */
+.hero{
+  position:relative;
+  height:450px;
+  overflow:hidden;
+}
+#matrixCanvas{
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  z-index:1;
+}
+.hero h2{
+  position:relative;
+  z-index:2;
+  color:var(--primary);
+  text-shadow:0 0 10px var(--primary);
+  text-align:center;
+  margin-top:150px;
+}
+.hero button{
+  position:relative;
+  z-index:2;
+  margin-top:20px;
+  background:transparent;
+  border:2px solid var(--primary);
+  color:var(--primary);
+  padding:12px 30px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.hero button:hover{background:var(--primary);color:#000}
+
+/* Sections */
+section{padding:60px 20px;max-width:1200px;margin:auto}
+.cards{display:flex;flex-wrap:wrap;gap:25px;justify-content:center}
+.card{
+  background:var(--bg-card);
+  padding:25px;
+  border-radius:10px;
+  max-width:320px;
+  box-shadow:0 0 10px #00ff9c33;
+  transition:0.3s;
+  text-align:center;
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 0 20px #00ff9c66;}
+.card h3{color:var(--primary);margin-bottom:10px}
+.card p{color:var(--text-main);font-size:0.95rem;margin-bottom:15px}
+
+/* Small icons in services */
+.card::before{
+  content:"";
+  display:block;
+  width:40px; height:40px;
+  margin:0 auto 10px auto;
+  background-size:contain;
+  background-repeat:no-repeat;
+}
+.card:nth-child(1)::before{background-image:url('https://img.icons8.com/ios-filled/50/00ff9c/bug.png');} /* Pentest */
+.card:nth-child(2)::before{background-image:url('https://img.icons8.com/ios-filled/50/00ff9c/shield.png');} /* Cybersecurity */
+.card:nth-child(3)::before{background-image:url('https://img.icons8.com/ios-filled/50/00ff9c/network.png');} /* Network */
+.card:nth-child(4)::before{background-image:url('https://img.icons8.com/ios-filled/50/00ff9c/security-camera.png');} /* CCTV */
+
+/* Contact */
+.contact form{
+  max-width:500px;margin:auto;display:flex;flex-direction:column;gap:15px;
+}
+input,textarea{
+  padding:12px;
+  background:#020617;
+  border:1px solid #333;
+  color:#fff;
+}
+.contact button{
+  background:var(--primary);
+  border:none;
+  padding:12px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.contact button:hover{background:#00ff9c;color:#000}
+
+/* Footer */
+footer{
+  background:#020617;
+  text-align:center;
+  padding:20px;
+  color:var(--text-muted);
+  box-shadow:0 -5px 15px #00ff9c33 inset;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Nexa IT</h1>
+  <p id="tagline">პროფესიონალური IT და კიბერუსაფრთხოება</p>
+</header>
+
+<nav>
+  <a href="#services" id="navServices">სერვისები</a>
+  <a href="#contact" id="navContact">კონტაქტი</a>
+  <button onclick="toggleLang()">ENG</button>
+</nav>
+
+<section class="hero">
+  <canvas id="matrixCanvas"></canvas>
+  <h2 id="heroTitle">ციფრული სამყაროს დაცვა</h2>
+  <button onclick="document.getElementById('contact').scrollIntoView()">დაგვიკავშირდი</button>
+</section>
+
+<section id="services">
+  <h2 style="text-align:center;color:var(--primary)">ჩვენი სერვისები</h2>
+  <div class="cards">
+    <div class="card"><h3>Pentest</h3><p>სისტემების უსაფრთხოების ტესტირება</p></div>
+    <div class="card"><h3>Cybersecurity</h3><p>კიბერუსაფრთხოების კონსულტაცია</p></div>
+    <div class="card"><h3>Network & Cabling</h3><p>ქსელების აწყობა და კაბელირება</p></div>
+    <div class="card"><h3>CCTV</h3><p>კამერების მონტაჟი და მომსახურება</p></div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2 style="text-align:center;color:var(--primary)">Contact</h2>
+  <form action="https://formspree.io/f/xgolekpj" method="POST">
+    <input type="text" name="name" placeholder="სახელი" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" rows="5" placeholder="შეტყობინება"></textarea>
+    <button type="submit">გაგზავნა</button>
+  </form>
+</section>
+
+<footer>
+  © 2026 Nexa IT
+</footer>
+
+<script>
+// Language toggle
+let geo=true;
+function toggleLang(){
+  geo=!geo;
+  document.documentElement.lang=geo?"ka":"en";
+  document.getElementById("tagline").innerText=geo?
+    "პროფესიონალური IT და კიბერუსაფრთხოება":
+    "Professional IT & Cybersecurity";
+  document.getElementById("heroTitle").innerText=geo?
+    "ციფრული სამყაროს დაცვა":
+    "Protecting Your Digital World";
+}
+
+// Advanced Matrix Effect
+const canvas = document.getElementById("matrixCanvas");
+const ctx = canvas.getContext("2d");
+
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = canvas.parentElement.offsetHeight;
+
+const fontSize = 20;
+let columns = Math.floor(width / fontSize);
+const drops = [];
+
+for (let x = 0; x < columns; x++) {
+  drops[x] = { y: Math.random() * height, speed: 2 + Math.random() * 4 };
+}
+
+function drawMatrix() {
+  ctx.fillStyle = "rgba(0,0,0,0.15)";
+  ctx.fillRect(0, 0, width, height);
+
+  ctx.fillStyle = "#00ff9c";
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const char = String.fromCharCode(33 + Math.random() * 94);
+    ctx.fillText(char, i * fontSize, drops[i].y);
+
+    drops[i].y += drops[i].speed;
+
+    if (drops[i].y > height && Math.random() > 0.975) {
+      drops[i].y = 0;
+      drops[i].speed = 2 + Math.random() * 5;
+    }
+  }
+
+  requestAnimationFrame(drawMatrix);
+}
+
+drawMatrix();
+
+// Responsive
+window.addEventListener("resize", () => {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = canvas.parentElement.offsetHeight;
+  columns = Math.floor(width / fontSize);
+});
+</script>
+
+</body>
+</html>
